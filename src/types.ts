@@ -36,7 +36,6 @@ export interface TreeNode {
 
     max: number;
     high: number;
-    //id: string;
     list: LinkedListNode;
 }
 
