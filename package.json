@@ -1,6 +1,6 @@
 {
   "name": "interval-tree",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Red-black interval tree",
   "main": "lib/index.js",
   "module": "lib/index.js",
@@ -13,7 +13,7 @@
     "coverage": "nyc -r text -e .ts -x \"tests/*.test.ts\" npm run test"
   },
   "keywords": [],
-  "author": "",
+  "author": "ProtonMail",
   "license": "ISC",
   "devDependencies": {
     "@types/jasmine": "^3.4.4",

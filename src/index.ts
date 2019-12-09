@@ -342,25 +342,31 @@ const addNode = (tree: Tree, key: number, high: number, id: string) => {
     tree.count += 1;
 };
 
-const searchRecursive = (node: TreeNode, low: number, high: number, results: SearchResult[]) => {
-    if (node === NULL_NODE || low > node.max) {
-        return;
-    }
+const search = (root: TreeNode, low: number, high: number, results: SearchResult[]) => {
+    const stack = [root]
 
-    if (node.left !== NULL_NODE) {
-        searchRecursive(node.left, low, high, results);
-    }
+    while (stack.length > 0) {
+        const node = stack.pop() as TreeNode
 
-    if (node.key <= high && node.high >= low) {
-        let linkedListNode: MaybeLinkedListNode = node.list;
-        while (linkedListNode && linkedListNode.high >= low) {
-            results.push([node.key, linkedListNode.high, linkedListNode.id]);
-            linkedListNode = linkedListNode.next;
+        if (node === NULL_NODE || low > node.max) {
+            continue;
         }
-    }
 
-    if (node.right !== NULL_NODE) {
-        searchRecursive(node.right, low, high, results);
+        if (node.left !== NULL_NODE) {
+            stack.push(node.left)
+        }
+
+        if (node.right !== NULL_NODE) {
+            stack.push(node.right)
+        }
+
+        if (node.key <= high && node.high >= low) {
+            let linkedListNode: MaybeLinkedListNode = node.list;
+            while (linkedListNode && linkedListNode.high >= low) {
+                results.push([node.key, linkedListNode.high, linkedListNode.id]);
+                linkedListNode = linkedListNode.next;
+            }
+        }
     }
 };
 
@@ -377,7 +383,7 @@ export default (tree = { root: NULL_NODE, count: 0 }) => {
         },
         search: (low: number, high: number): SearchResult[] => {
             const results: SearchResult[] = [];
-            searchRecursive(tree.root, low, high, results);
+            search(tree.root, low, high, results);
             return results;
         },
         getCount: () => tree.count,
