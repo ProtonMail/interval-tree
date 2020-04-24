@@ -4,6 +4,7 @@
   "description": "Red-black interval tree",
   "main": "lib/index.js",
   "module": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "preversion": "./preversion.sh",
     "postversion": "./postversion.sh",
