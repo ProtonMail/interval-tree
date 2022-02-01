@@ -6,8 +6,6 @@
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "preversion": "./preversion.sh",
-    "postversion": "./postversion.sh",
     "build": "tsc",
     "test": "npm run build && node -r esm ./node_modules/.bin/jasmine --config=jasmine.json",
     "lint": "eslint src --ext .ts --quiet",
