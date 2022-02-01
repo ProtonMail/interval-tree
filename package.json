@@ -2,9 +2,9 @@
   "name": "@protontech/interval-tree",
   "version": "1.0.0",
   "description": "Red-black interval tree",
-  "main": "lib/index.js",
-  "module": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "npm run build && node -r esm ./node_modules/.bin/jasmine --config=jasmine.json",
