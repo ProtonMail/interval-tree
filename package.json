@@ -1,5 +1,5 @@
 {
-  "name": "interval-tree",
+  "name": "@protontech/interval-tree",
   "version": "1.0.0",
   "description": "Red-black interval tree",
   "main": "lib/index.js",
